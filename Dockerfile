@@ -5,7 +5,7 @@ FROM rocker/shiny
 RUN apt-get update && apt-get install -y openjdk-8-jdk
 
 # Installation des dépendances R spécifiées
-RUN R -e "install.packages(c('dplyr', 'ggplot2', 'glue', 'htmlwidgets', 'httr', 'jsonlite', 'keyring', 'LDAvis', 'leaflet', 'leaflet.minicharts', 'lubridate', 'magrittr', 'mongolite', 'plotly', 'quanteda', 'reactable', 'readxl', 'rhino', 'rjson', 'Rmpfr', 'servr', 'sf', 'shiny', 'shiny.fluent', 'shiny.router', 'shinyjs', 'shinymanager', 'shinythemes', 'slam', 'stats', 'stringr', 'tidyr', 'tm', 'topicmodels', 'upstartr', 'wordcloud', 'wordcloud2'))"
+RUN R -e "install.packages(c('dplyr', 'ggplot2', 'glue', 'htmlwidgets', 'httr', 'jsonlite', 'keyring', 'LDAvis', 'leaflet', 'janitor', 'leaflet.minicharts', 'lubridate', 'magrittr', 'mongolite', 'plotly', 'quanteda', 'reactable', 'readxl', 'rhino', 'rjson', 'Rmpfr', 'servr', 'sf', 'shiny', 'shiny.fluent', 'shiny.router', 'shinyjs', 'shinymanager', 'shinythemes', 'slam', 'openssl', 'jose', 'stats', 'stringr', 'tidyr', 'tm', 'topicmodels', 'upstartr', 'wordcloud', 'wordcloud2'))"
 
 # Make a directory in the container
 WORKDIR /app

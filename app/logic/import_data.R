@@ -17,7 +17,8 @@ box::use(
   #lubridate[format],
   utils[head, tail],
   httr[GET, content, http_status],
-  slam[row_sums]
+  slam[row_sums],
+  janitor[clean_names], stats, tidyr
 )
 
 box::use(
@@ -40,7 +41,16 @@ path_data <- paste(root, "/", "app/data/", sep="")
 
 #""""""""""""""""""""""""""""""""""""""""""""""""""""""
 connection_string <- "mongodb+srv://dina-user:LZtL1VtD0KTyW4pZ@dina-db.rzr5ytg.mongodb.net/?retryWrites=true&w=majority&appName=dina-db"
+
+################## Secret Key
+key <- "Anti-D-2024"
+################# define viewer role
+role <- 2
+
 data <- fetch_mongodb(connection_string = connection_string, db="test", collection = "reports")
+
+############## Fetch login datas
+login_data <- fetch_mongodb(connection_string = connection_string, collection = "users", db="test")
 
 ################## prepocessing of data ####################
 data$valueDate <- as.Date(substr(data$valueDate, 1, 10), format = "%Y-%m-%d")
