@@ -1,4 +1,5 @@
 .quantitative_page {
+  background-color: #f6f6f6;
   height: auto;
   max-width: auto;
 }
@@ -10,7 +11,7 @@
 
 .quantitative_page__content {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   grid-auto-rows: auto; /* Ajuster la hauteur automatiquement */
   grid-gap: 5px;
 }
@@ -24,6 +25,7 @@
 
 
 .quantitative_bivariate {
+  background-color: #f6f6f6;
   height: 100%;
   max-width: 100%;
 
@@ -72,8 +74,9 @@
 
     .qualitative_page_middle {
       display: flex;
-      flex-direction: column;
-      row-gap: 1rem;
+      justify-content: center; /* Centrer horizontalement */
+      align-items: center; /* Centrer verticalement */
+      column-gap: 1rem; /* Espace entre les colonnes */
       height: 100%;
       width: 100%;
     }
@@ -102,4 +105,50 @@
   background-color: #2B8049;
   color: #fff;
   border-radius: 12px;
+}
+
+.compare_page {
+  background-color: #f6f6f6;
+}
+
+
+.ms-Fabric{
+    background-color: #f6f6f6;
+}
+
+
+/* Style général pour les éléments avec la classe 'card' */
+.card {
+  background-color: #ffffff; /* Couleur de fond blanche */
+  border-radius: 12px; /* Bords arrondis */
+  padding: 1rem; /* Espacement interne */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ombre pour donner un effet de profondeur */
+}
+
+/* Style spécifique pour la profondeur ms-depth-8 */
+.ms-depth-8 {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Ombre plus prononcée */
+}
+
+/* Style spécifique pour la taille ms-sm5 */
+.ms-sm5 {
+  width: 20%; /* Exemple : définir une largeur de 20% pour les petits écrans */
+}
+
+/* Style spécifique pour la taille ms-xl5 */
+.ms-xl5 {
+  width: 50%; /* Exemple : définir une largeur de 50% pour les grands écrans */
+}
+
+/* Media queries for responsiveness */
+@media (max-width: 600px) {
+  .ms-sm5 {
+    width: 100%; /* Pleine largeur pour les écrans très petits */
+  }
+}
+
+@media (min-width: 1200px) {
+  .ms-xl5 {
+    width: 40%; /* Ajustement de la largeur pour les très grands écrans */
+  }
 }

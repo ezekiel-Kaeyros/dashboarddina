@@ -13,11 +13,14 @@ box::use(
 )
 
 
+
 #' @export
 ui <- function(id) {
   ns <- NS(id)
   shinyjs::useShinyjs()
   shiny::uiOutput(ns("ui"))
+  # items <- shiny.fluent::DefaultButton.shinyInput("export_data", "Export data",
+  #                                                 iconProps = list(iconName = "Download"))
 }
 
 #' @export
@@ -46,7 +49,7 @@ server <- function(id) {
         layouts$quantitative_bivariate_layout(age_discrimination$ui(ns("affected_person")),
                                               age_influence$ui(ns("age_of_affected_person")),
                                               map_topic$ui(ns("map")),
-                                              gender_discrimination$ui(ns("gender_discrimination")), current_token()    ) #,location$ui(ns("location"))
+                                              gender_discrimination$ui(ns("gender_discrimination")), current_token()) #,location$ui(ns("location"))
       } else{
         shiny::h3("Error 500 - Internal Server Error")
       }

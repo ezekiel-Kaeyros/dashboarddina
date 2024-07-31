@@ -36,7 +36,9 @@ server <- function(id) {
     #ns <- NS(id)
     #output$plot_personaf <- render
     button_state <- reactiveVal(FALSE)
-    yiord_palette <- c("#FFFFCC", "#FFEDA0", "#FED976", "#FEB24C", "#FD8D3C", "#FC4E2A", "#E31A1C", "#BD0026", "#800026")
+    yiord_palette <- c("#e6eff0", "#cddee1", "#b3ced3", "#9abdc4", "#81adb5", "#689ca6", "#4f8c97", "#357b89",
+                       "#1c6b7a", "#035a6b", "#035160", "#024856", "#023f4b", "#023640", "#022d36", "#01242b",
+                       "#011b20")
 
     observeEvent(input$toggleButton, {
       button_state(!button_state())
@@ -70,7 +72,7 @@ server <- function(id) {
       gg <- ggplot(quantitative_bivariate_page_data$table_age_inf, aes(category_age, influence)) +
         geom_tile(aes(fill = Freq)) +
         geom_text(aes(label = round(Freq, 1), text = paste("Altersgruppe:", category_age, "\nEinfluss:", influence, "\nZählen Sie:", Freq))) +
-        scale_fill_gradient(low = "#FED976", high = "red") +
+        scale_fill_gradient(low = "#e6eff0", high = "#011b20") +
         labs(#title = "Frequency of Different Types of Influence by Age Group",
              x = "Altersgruppe",
              y = "Einfluss",

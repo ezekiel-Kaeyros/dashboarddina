@@ -37,6 +37,7 @@ server <- function(id) {
     ns <- session$ns
 
     shinyjs::useShinyjs()
+
     current_token <- shiny::reactive({
       token <- shiny.router::get_query_param("token", session)
       if(is.null(token)){
@@ -80,6 +81,7 @@ server <- function(id) {
     output$modal <- renderReact({
       Modal(isOpen = modalVisible(),
             Stack(tokens = list(padding = "15px", childrenGap = "10px"),
+                  styles = list(root = list(backgroundColor = "#f6f6f6")),
                   div(style = list(display = "flex"),
                       Text("Choose inputs to compare data", variant = "large"),
                       div(style = list(flexGrow = 1))

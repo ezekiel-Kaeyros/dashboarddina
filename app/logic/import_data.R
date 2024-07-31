@@ -317,8 +317,7 @@ df$gender <- gsub("\\)", "", df$gender)
 
 
 df <- df %>% dplyr::select(identity, gender, age,valueDate,startDate,endDate, location, locationOnline,
-                           manifestationOfDiscrimination, manifestationOfDiscriminationFreeField, haveYouReported, haveYouReportedYes, otherFormOfDisc,
-                          organizationType, numberOfEmployees,genderFreeField,haveYouReportedYesFreeField,
-                          organizationTypeFreeField
+                           manifestationOfDiscrimination,  haveYouReported, haveYouReportedYes, otherFormOfDisc,
+                          organizationType, numberOfEmployees,genderFreeField,haveYouReportedYesFreeField
 )
 
