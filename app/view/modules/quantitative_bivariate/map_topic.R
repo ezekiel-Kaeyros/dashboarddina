@@ -24,7 +24,7 @@ ui <- function(id) {
                     h1(class = "subtitle", ""),
                     p(class = "description", ""),
                     # Graph goes here
-                    leafletOutput(ns("map_plot"), width="670px", height=380) #450
+                    leafletOutput(ns("map_plot")) #450
                 )
   )
 

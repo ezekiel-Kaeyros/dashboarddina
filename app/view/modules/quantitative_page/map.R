@@ -24,7 +24,7 @@ ui <- function(id) {
                     h1(class = "subtitle", ""),
                     p(class = "description", ""),
                     # Graph goes here
-                    leafletOutput(ns("map_plot"), width="100%", height=650) #450
+                    leafletOutput(ns("map_plot"), width="100%", height=440) #450
                 )
   )
 
@@ -72,7 +72,7 @@ server <- function(id, filter) {
                   values=~cat, title="Anzahl der betroffenen Personen"
 
         ) %>%
-        setView(lng=7.661594, lat=51.433237, zoom=7.5)
+        setView(lng=7.661594, lat=51.433237, zoom=7)
 
       map
     })

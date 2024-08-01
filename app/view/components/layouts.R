@@ -87,19 +87,33 @@ quantitative_page_layout <- function(head, tl_card, bl_card, middle_card,mid_car
           ),
       ),
 
-      div(class = "quantitative_page__content",
-          div(class = "left", #style="display:grid;  grid-template-columns: 1fr 1fr; height: 100%; width: 100%; gap: 2rem;",
-              tl_card,
-              bl_card,
-              br_card,
-              mid_card,
-              tr_card,
-              mid_b_card
-          )
-      ),
+      # div(class = "quantitative_page__content",
+      #     div(class = "left", #style="display:grid;  grid-template-columns: 1fr 1fr; height: 100%; width: 100%; gap: 2rem;",
+      #         tl_card,
+      #         bl_card,
+      #         br_card,
+      #         mid_card,
+      #         tr_card,
+      #         mid_b_card
+      #     )
+      # ),
+      #
+      # div(class = "map_card",#class = "middle_bottom",
+      #     middle_card
+      # )
 
-      div(class = "map_card",#class = "middle_bottom",
-          middle_card
+      div(class = "quantitative_page__content",
+          div(class = "grid-item", tl_card),
+          div(class = "grid-item", bl_card),
+          div(class = "grid-item", br_card),
+          div(class = "grid-item", mid_card),
+          div(class = "grid-item", tr_card),
+          div(class = "grid-item", mid_b_card),
+      ),
+      div(
+        class = "grid-item centered-item",
+        #style = "grid-column: span 2; display: flex; justify-content: center; align-items: center; margin-left: auto; margin-right: auto;",
+        middle_card
       )
   )
 }
