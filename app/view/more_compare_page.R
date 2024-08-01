@@ -74,7 +74,7 @@ server <- function(id) {
               )),
           tags$br(),
 
-          div(style="display: flex; margin-left: 160px;",
+          div(class = "more_compare_chart",
               cards$makeCard(div(class="text1",""
                                  #Text("From ",shiny::textOutput(ns("date1")), "to ", shiny::textOutput(ns("date3")))
               ),

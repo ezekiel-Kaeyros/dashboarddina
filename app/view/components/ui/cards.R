@@ -57,14 +57,14 @@ recent_card <- function(id, url, date) {
 
 #' @export
 card_ui <- function(title, actionBtn ,content) {
-  div(class = "card",
-    tagList(
-      div(class = "card__header",
-        h1(class = "title", title),
-        actionBtn
-      ),
-      div(class = "card__content", content)
-    )
+  div(class = "card", style = "background-color: #ffffff;",
+      tagList(
+        div(class = "card__header",
+            h1(class = "title", title),
+            actionBtn
+        ),
+        div(class = "card__content", content)
+      )
   )
 }
 
@@ -78,8 +78,8 @@ card_comapre_ui <- function(title, actionBtn ,content) {
       tagList(
         div(class = "compare_card__header",
             div( class = "title",
-              h1(""), #Choose files to compare
-              actionBtn
+                 h1(""), #Choose files to compare
+                 actionBtn
             )
         ),
         div(class = "card__content", content)

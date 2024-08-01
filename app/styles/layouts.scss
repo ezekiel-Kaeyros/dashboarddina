@@ -1,66 +1,33 @@
 .quantitative_page {
-  background-color: #f6f6f6;
-  height: auto;
-  max-width: auto;
-}
+  height: 100vh;
+  max-width: 100vw;
+  background-color: #F6F6F6;
 
-.quantitative_page__title {
-  font-size: 22px;
-  font-weight: bold;
-}
-
-.quantitative_page__content {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-auto-rows: auto; /* Ajuster la hauteur automatiquement */
-  grid-gap: 5px;
-}
-
-.grid-item {
-  /*border: 1px solid #ccc;*/
-  padding: 20px;
-  text-align: left;
-  width: auto; /* Faire en sorte que toutes les divs aient la même largeur */
-}
-
-
-.quantitative_bivariate {
-  background-color: #f6f6f6;
-  height: 100%;
-  max-width: 100%;
-
-  &__title {
-    font-size: 22px;
-    font-weight: bold;
-  }
-  &__content {
-    display: flex;
-    justify-content: space-between;
-    gap: 1rem;
-    height: inherit;
-
-    .quantitative_bivariate_left {
-      display: flex;
-      flex-direction: column;
-      row-gap: 1rem;
+   .left {
+      display: grid;
+      gap: 2rem;
       width: 100%;
+      grid-template-columns: 1fr 1fr;
       height: 100%;
+      padding: 10px;
     }
 
-    .quantitative_bivariate_right {
-      display: flex;
-      flex-direction: column;
-      row-gap: 1rem;
-      height: 100%;
-      width: 100%;
+    .map_card{
+      height: auto;
+      margin-left: 340px;
+      margin-right: 340px;
     }
-  }
-}
 
-.qualitative_page {
-  display: flex;
-  height: 100%;
-  max-width: 100%;
+   @media (max-width: 1024px) {
+      .left {
+        grid-template-columns: 1fr;
+      }
+
+      .map_card {
+        margin-left: 10px;
+        margin-right: 10px;
+      }
+    }
 
   &__title {
     font-size: 22px;
@@ -70,19 +37,124 @@
     display: flex;
     justify-content: space-between;
     gap: 2rem;
-    height: inherit;
+    margin-bottom: 30px;
 
-    .qualitative_page_middle {
+
+    .middle {
+      height: 100%;
+      width: 100%;
+      height: auto;
+    }
+
+    .right {
       display: flex;
-      justify-content: center; /* Centrer horizontalement */
-      align-items: center; /* Centrer verticalement */
-      column-gap: 1rem; /* Espace entre les colonnes */
+      flex-direction: column;
+      row-gap: 2rem;
       height: 100%;
       width: 100%;
     }
+  }
+  .middle_bottom {
+      width: 60% !important;
+      margin-right: 300px;
+      height: auto;
+      margin: auto;
+    }
 
+}
+
+
+.quantitative_bivariate {
+  background-color: #f6f6f6;
+  height: auto;
+  max-width: auto;
+  padding: 10px; /* Padding pour l'espacement */
+
+  &__title {
+    font-size: 22px;
+    font-weight: bold;
+  }
+
+  &__content {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-gap: 10px;
+
+    @media (max-width: 1024px) {
+      grid-template-columns: repeat(1, minmax(0, 1fr));
+      margin: auto;
+      width: 100%;
+    }
+
+    .quantitative_bivariate_left, .quantitative_bivariate_right {
+      display: flex;
+      flex-direction: column;
+      row-gap: 1rem;
+      width: 100%;
+      height: auto; /* Adjust height to auto for responsiveness */
+    }
   }
 }
+
+#qualitative-myChart{
+  background-color: #ffffff !important;
+  margin-left: 100px;
+  margin-right: 100px;
+  display: flex;
+  justify-content: center;
+}
+
+.qualitative_page {
+  display: flex;
+  flex-direction: column; /* Align items in a column for smaller screens */
+  height: auto; /* Change to auto for responsiveness */
+  max-width: 100%;
+  padding: 10px; /* Padding for spacing */
+  overflow: auto;
+
+  &__title {
+    font-size: 22px;
+    font-weight: bold;
+    text-align: center; /* Center title for better appearance */
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 2rem;
+    height: auto; /* Change to auto for responsiveness */
+    width: 100%;
+
+    .qualitative_page_middle {
+      display: flex;
+      justify-content: center; /* Center horizontally */
+      align-items: center; /* Center vertically */
+      column-gap: 1rem; /* Space between columns */
+      height: auto; /* Adjust height to auto for responsiveness */
+      width: 100%;
+    }
+  }
+
+  @media (max-width: 1200px) {
+    &__content {
+      flex-direction: column; /* Stack items vertically on smaller screens */
+      gap: 1rem; /* Adjust gap for smaller screens */
+    }
+
+    .qualitative_page_middle {
+      flex-direction: column; /* Stack middle section items vertically */
+      align-items: center; /* Center items */
+      row-gap: 1rem; /* Space between rows */
+    }
+  }
+}
+
+
+.card_content{
+  width: 100%;
+}
+
 
 .head_section{
   display: flex;
@@ -111,6 +183,22 @@
   background-color: #f6f6f6;
 }
 
+.more_compare_chart {
+  display: flex;
+  padding: 50px;
+}
+
+@media (max-width: 1024px) {
+  .more_compare_chart {
+    flex-direction: column; /* Stack items vertically on smaller screens */
+    gap: 1rem; /* Adjust gap for smaller screens */
+    width: auto;
+  }
+
+  .more_compare_chart > div {
+    width: auto; /* Ensure child divs have automatic width */
+  }
+}
 
 .ms-Fabric{
     background-color: #f6f6f6;
@@ -123,6 +211,10 @@
   border-radius: 12px; /* Bords arrondis */
   padding: 1rem; /* Espacement interne */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ombre pour donner un effet de profondeur */
+}
+
+#ms-Dialog-main{
+  margin-top: -300px;
 }
 
 /* Style spécifique pour la profondeur ms-depth-8 */
@@ -138,17 +230,4 @@
 /* Style spécifique pour la taille ms-xl5 */
 .ms-xl5 {
   width: 50%; /* Exemple : définir une largeur de 50% pour les grands écrans */
-}
-
-/* Media queries for responsiveness */
-@media (max-width: 600px) {
-  .ms-sm5 {
-    width: 100%; /* Pleine largeur pour les écrans très petits */
-  }
-}
-
-@media (min-width: 1200px) {
-  .ms-xl5 {
-    width: 40%; /* Ajustement de la largeur pour les très grands écrans */
-  }
 }

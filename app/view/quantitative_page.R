@@ -47,31 +47,47 @@ server <- function(id) {
       converted_time <- as.POSIXct(token_json_data$exp, origin="1970-01-01", tz="Africa/Lagos")
 
       if(token_json_data$email %in% import_data$login_data$email & token_json_data$role == import_data$role & converted_time > Sys.time()){
-        layouts$quantitative_page_layout(div(class = "head_section",
-                                             #h1(class = "quantitative_page__title", ""), #Quantitative statistics
-                                             div(style="display: flex",
-                                                 h3("Identität Auswählen :", style="font-size: 1.25em; color: #333; margin-right: 10px; margin-left: 20px;"),
-                                                 div(style="width: 200px; margin-top: 15px; margin-left: 10px",
-                                                     Dropdown.shinyInput(ns("filter"),
-                                                                         value = import_data$options_filter[[1]]$key,
-                                                                         options = import_data$options_filter,
-                                                                         style="font-size: 1.25em; color: #333;"
-                                                     )),
-
-                                                 div(style = "float: right; display: flex; gap: 0.5rem; margin-left: 485px",
-                                                     shiny.fluent::DefaultButton.shinyInput("refresh", "Daten aktualisieren",
-                                                                                            iconProps = list(iconName = "Refresh"),
-                                                                                            style = "float: left; height: 62px; top: -4px; margin: 5px;
-                                           background-color: #000; color: #fff; border-radius: 12px; display: flex;"),
-
-                                                     shiny.fluent::Link(href=paste("#!/quantitative_bivariate?token=", current_token(), sep = ""), "Weiter zu Bivariate",
-                                                                        style = "background-color: #000; text-decoration:none; padding: 1.5em 1.5em;
-                        border-color: #000; border-radius: 12px; display: flex;
-                        border: 1px solid black; color: #fff; font-weight: bold;"),
-                                                     shiny.fluent::DefaultButton.shinyInput("export_quantitative", "Daten exportieren",
-                                                                                            iconProps = list(iconName = "Download")))
-                                             ),
-        ),
+        layouts$quantitative_page_layout(
+          div(style="display: flex;justify-content: space-between;  align-items: center; width:100%; flex-wrap: wrap;", #class = "head_section",
+              #h1(class = "quantitative_page__title", ""), #Quantitative statistics
+              div(style="display: flex; align-items: center; gap:5px;", #gap: 0.1rem; align-items: center; float: right;
+                  h3(style="margin-left:20px;","Identität auswählen: "),
+                  div(style="width: 200px; ",
+                      shiny.fluent::Dropdown.shinyInput(ns("filter"),
+                                                        value = import_data$options_filter[[1]]$key,
+                                                        options = import_data$options_filter
+                      ))
+              ),
+              div(
+                style = "display: flex; gap: 0.1rem; align-items: center; ",
+                div(#style = "float: right;  gap: 0.5rem; margin-top: 10px;",#28px
+                  shiny.fluent::DefaultButton.shinyInput("refresh", "Daten aktualisieren",
+                                                         iconProps = list(iconName = "Refresh"),
+                                                         style = "background-color: #000; text-decoration:none; padding: 1.5em 1.5em;
+                            text-align: center; border-color: #fff; border-radius: 12px;
+                            border: 1px solid black;height:60px;
+                           color: #fff; font-weight: bold;"
+                  )),
+                shiny.fluent::Link(
+                  href = paste("#!/quantitative_bivariate?token=", current_token(), sep = ""),
+                  "Weiter zu Bivariate",
+                  style = "background-color: #000; text-decoration: none; padding: 1.5em 1.5em;
+             text-align: center; border-color: #fff; border-radius: 12px;
+             border: 1px solid black; color: #fff; font-weight: bold; margin-top:50px; margin-left:5px"
+                ),
+                shiny.fluent::DefaultButton.shinyInput(
+                  "export_quantitative",
+                  "Daten exportieren",
+                  iconProps = list(iconName = "Download"),
+                  style="margin-top:15px"
+                  # iconProps = list(
+                  #   imageProps = list(
+                  #     src = "www/logo.svg", # Path to your image
+                  #     style = list(width = "16px", height = "16px") # Adjust as necessary
+                  #   ))
+                ),
+              )
+          ),
 
         affected_person$ui(ns("affected_person")), age_of_affected_person$ui(ns("age_of_affected_person")),
         map$ui(ns("map")),location_f$ui(ns("location_f")),gender_identity$ui(ns("gender_identity")),
