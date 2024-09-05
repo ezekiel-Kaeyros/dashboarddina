@@ -10,7 +10,7 @@ RUN R -e "install.packages(c('dplyr', 'ggplot2', 'glue', 'htmlwidgets', 'httr', 
 # Make a directory in the container
 WORKDIR /app
 
-# Copy your files into the container
+# Copy your files into the containerjj
 COPY . /app
 
 # Installation de libglpk40 et libsecret-1-0
