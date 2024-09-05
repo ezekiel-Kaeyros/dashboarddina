@@ -136,6 +136,10 @@ data$description[is.na(data$description)] <- "aber"
 file_save_lda_model <- paste(path_data, "lda_model.rds", sep="")
 file_save_prediction <- paste(path_data, "prediction.rds", sep="")
 
+# Supprimer les fichiers
+file.remove(file_save_lda_model)
+file.remove(file_save_prediction)
+
 # Vérifier si les fichiers existent
 if (!file.exists(file_save_lda_model) || !file.exists(file_save_prediction)) {
   german_stopwords <- stopwords("german")
